@@ -43,18 +43,8 @@ project-root/
 pip install -r requirements.txt
 add to requirements.txt ONLY those libraries that are used in tests
 
-## 3.ENV file contents
 
-#API_TOKEN="59386c802e6a6f5d87d3d70a44dff55d53ebfe2373035d22acde1d3d973a8c9f"
-#KEY="lNPQHj5MS7Z81ocu4r3Iq6hQFPu0EcLRAcejIOFfRGg="
-#FREE_EMAIL="darina.planetvpn-test1@gmail.com"
-#FREE_PASSWORD="qprtXd6X2F"
-#PREMIUM_EMAIL="darina.planetvpn@gmail.com"
-#PREMIUM_PASSWORD="ABCzxc816&D1"
-#GH_TOKEN=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 //needed to install geckodriver on firefox browser//
-
-
-## 4. Running tests
+## 3. Running tests
 
 #To run tests for specific browser and country, use pytest. Simply execute the following command in the project's root directory:
 

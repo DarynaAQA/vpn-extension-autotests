@@ -1,0 +1,26 @@
+image: docker:latest
+
+variables:
+  SELENIUM_IMAGE: $CI_REGISTRY_IMAGE:selenium
+  GH_TOKEN: glft-JR9t2JgsV9Z9kUqnPHss
+
+stages:
+  - build image
+  - test
+
+build new image:
+  stage: build image
+  services:
+    - docker:dind
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build --pull --no-cache --build-arg GH_TOKEN=$GH_TOKEN -t $SELENIUM_IMAGE ./
+    - docker push $SELENIUM_IMAGE
+  when: manual
+
+run test:
+  stage: test
+  image: $SELENIUM_IMAGE
+  script:
+    - sh run_test.sh
+  when: manual
