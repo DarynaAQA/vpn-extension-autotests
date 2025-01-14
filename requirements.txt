@@ -1,0 +1,9 @@
+pytest==8.1.1
+python-dotenv==1.0.1
+requests==2.31.0
+selenium==4.20.0
+webdriver-manager==4.0.2
+pycryptodome==3.20.0
+pillow==10.3.0
+PyAutoGUI==0.9.54
+zxing==1.0.3
