@@ -18,19 +18,21 @@ import os
 load_dotenv()
 
 extension_paths = {
-    'chrome': 'extension/PlanetVPN-chrome-2.0.3.1-[OPEN_POPUP] (1).zip',
-    'firefox': 'extension/PlanetVPN-firefox-2.0.3.1-[OPEN_POPUP].zip'
+    'chrome': 'extension/{name}.zip',
+    'firefox': 'extension/{name}.zip'
 }
 
 extension_paths = {
-    'chrome': 'extension/PlanetVPN-chrome-2.0.1-[OPEN_POPUP].zip',
-    'firefox': 'extension/PlanetVPN-firefox-2.0.1-[OPEN_POPUP].zip'
+    'chrome': 'extension/{name}.zip',
+    'firefox': 'extension/{name}.zip'
 }
+
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome", help="Browser to run tests on (chrome or firefox)")
 
-    parser.addoption("--slack-channel", action="store", default="qa-qase-results-release", help="Slack channel to send test run reports to")
+    parser.addoption("--slack-channel", action="store", default="qa-qase-results-release",
+                     help="Slack channel to send test run reports to")
 
 
 @pytest.fixture(scope='function')

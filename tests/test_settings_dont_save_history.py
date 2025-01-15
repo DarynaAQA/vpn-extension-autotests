@@ -184,7 +184,7 @@ class TestSaveHistory:
             3. Click on the burger menu button
             4. Click on the Settings button
             5. Click on the Don't save history switch
-            6. Open the website https://freeplanetvpn.ru/ in a new tab
+            6. Open the website in a new tab
             7. Click on the Don't save history switch for disabling it
             8. Open the website https://ipinfo.io/ in a new tab
         """

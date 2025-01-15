@@ -1,3 +1,7 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 from base_classes.driver import Driver
 from locators.sidebar_menu_locators import SidebarMenuLocators
 from locators.site_locators import IpInfoSiteLocators
@@ -43,11 +47,11 @@ class BaseExtPage(Driver):
         self.driver.execute_script("window.open('https://ipinfo.io/', '_blank');")
         self.driver.switch_to.window(self.driver.window_handles[-1])
 
-    def open_new_tab_free_vpn_planet(self):
+    def open_new_tab_free_vpn(self):
         """
             This method open website https://ipinfo.io/ in new tab.
         """
-        self.driver.execute_script("window.open('https://freevpnplanet.com/', '_blank');")
+        self.driver.execute_script("window.open('{link_site}', '_blank');")
         self.driver.switch_to.window(self.driver.window_handles[-1])
 
     def burger_menu_button_is_present(self):
@@ -68,11 +72,11 @@ class BaseExtPage(Driver):
         """
         return self.is_present('id', BaseLocators.LogoutButton)
 
-    def logo_planet_vpn_is_present(self):
+    def logo_vpn_is_present(self):
         """
-            This method will check for presence of logo Planet VPN.
+            This method will check for presence of logo VPN.
         """
-        return self.is_present('class_name', BaseLocators.LogoPlanetVpn)
+        return self.is_present('class_name', BaseLocators.LogoVpn)
 
     def select_country_button_is_present(self):
         """
@@ -92,11 +96,11 @@ class BaseExtPage(Driver):
         """
         return self.is_present('id', BaseLocators.CONNECT_STATUS)
 
-    def planet_icon_is_present(self):
+    def vpn_icon_is_present(self):
         """
-            This method will check for presence of Planet icon.
+            This method will check for presence of VPN icon.
         """
-        return self.is_present('class_name', BaseLocators.PlanetIcon)
+        return self.is_present('class_name', BaseLocators.Icon)
 
     def connect_button_is_present(self):
         """

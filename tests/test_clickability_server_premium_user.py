@@ -6,8 +6,6 @@ import time
 
 
 class TestClickabilityServerPremiumUser:
-    email_user = 'elida.qa.test+3@gmail.com'
-    password_user = 'PlanetVPN'
 
     def test_clickability_server_premium_user(self, setup_driver, qase_run_id, launch_methods):
         """

@@ -164,7 +164,7 @@ class TestLoginLogout:
             4. Click on the login icon
             5. Click on the logout button
             6. Click on the Yes button
-            7. Check for presence the Planet VPN logo
+            7. Check for presence the VPN logo
         """
         base_page, privacy_policy, sidebar_menu, qase = launch_methods
         auth_methods = AuthExtPage(setup_driver)
@@ -174,8 +174,8 @@ class TestLoginLogout:
             auth_methods.login_free_user()
             base_page.is_clickable('id', AccountLocators.LogOut).click()
             base_page.is_clickable('xpath', AccountLocators.SpanYes).click()
-            logo_planet = base_page.is_present('class_name', BaseLocators.LogoPlanetVpn)
-            assert isinstance(logo_planet, WebElement)
+            logo = base_page.is_present('class_name', BaseLocators.LogoVpn)
+            assert isinstance(logo, WebElement)
             qase.create_passed_result(case=56, test_run_id=qase_run_id, time=time.time()-base_page.time)
         except Exception as ex:
             qase.create_failed_result(case=56, test_run_id=qase_run_id, time=time.time()-base_page.time,

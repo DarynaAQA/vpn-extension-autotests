@@ -1,6 +1,8 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
 from locators.settings_locators import SettingsLocators
 from locators.sidebar_menu_locators import SidebarMenuLocators
-
 import time
 
 
@@ -24,7 +26,7 @@ class TestStoresButtons:
             appstore_button = base_page.is_clickable('id', SettingsLocators.AppStoreButton).click()
             base_page.activate_redirect_page()
             store_url = base_page.get_current_url()
-            assert store_url == 'https://apps.apple.com/us/app/free-vpn-proxy-by-planet-vpn/id1410235921'
+            assert store_url == os.getenv("STORE_URL")
             qase.create_passed_result(case=339, test_run_id=qase_run_id, time=time.time() - base_page.time)
         except AssertionError as ex:
             qase.create_failed_result(case=339, test_run_id=qase_run_id, time=time.time() - base_page.time,
@@ -48,7 +50,7 @@ class TestStoresButtons:
             google_play = base_page.is_clickable('id', SettingsLocators.PlayMarketButton).click()
             base_page.activate_redirect_page()
             store_url = base_page.get_current_url()
-            assert store_url == 'https://play.google.com/store/apps/details?hl=en&id=com.freevpnplanet'
+            assert store_url == os.getenv("STORE_URL_GOOGLE_MARKET")
             qase.create_passed_result(case=340, test_run_id=qase_run_id, time=time.time() - base_page.time)
         except AssertionError as ex:
             qase.create_failed_result(case=340, test_run_id=qase_run_id, time=time.time() - base_page.time,
@@ -97,7 +99,7 @@ class TestStoresButtons:
         base_page.activate_redirect_page()
         store_url = base_page.get_current_url()
         try:
-            assert store_url == 'https://www.amazon.com/Free-VPN-Proxy-Planet/dp/B0C2QRHLHL/ref=sr_1_1?crid=3HVJ6FNGSUWJL&keywords=Planet+vpn&qid=1691159683&sprefix=planet+vpn%2Caps%2C268&sr=8-1'
+            assert store_url == os.getenv("STORE_URL_AMAZON")
             qase.create_passed_result(case=379, test_run_id=qase_run_id, time=time.time() - base_page.time)
         except AssertionError as ex:
             qase.create_failed_result(case=379, test_run_id=qase_run_id, time=time.time() - base_page.time,

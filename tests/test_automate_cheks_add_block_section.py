@@ -1,3 +1,5 @@
+import os
+
 from locators.settings_locators import SettingsLocators, ReloadPopUpLocators
 from locators.sidebar_menu_locators import SidebarMenuLocators
 from locators.base_locators import BaseLocators
@@ -206,10 +208,10 @@ class TestChecksAddBlockSection:
             add_site_button = base_page.is_clickable('id', ReloadPopUpLocators.ADD_WEB_SITE_BUTTON).click()
             div_google_site = base_page.is_clickable('xpath', f'//div[contains(@value, {user_google_site})]')
 
-            # add planet vpn site
+            # add vpn site
             web_site_input_search = base_page.is_clickable('id', ReloadPopUpLocators.WEB_SITE_INPUT)
             web_site_input_search.click()
-            web_site_input_search.send_keys('https://freevpnplanet.com')
+            web_site_input_search.send_keys(os.getenv("WEBSITE_LINK"))
             vpn_site = web_site_input_search.get_attribute('value').strip().split('//')
             user_vpn_site = vpn_site[1]
             add_site_button = base_page.is_clickable('id', ReloadPopUpLocators.ADD_WEB_SITE_BUTTON)

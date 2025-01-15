@@ -22,7 +22,7 @@ class QaseMethods:
         date = datetime.datetime.today().strftime("%d.%m.%Y(%H:%M)")
 
         payload = {
-            "title": f"Debug_Darina_PlanetVPN_Extension_testing_{date}",
+            "title": f"Debug_Darina_Extension_testing_{date}",
             "plan_id": test_plan_id
         }
 
@@ -93,7 +93,7 @@ class QaseMethods:
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": f":gear: <{public_test_run_url}|*Debug_PlanetVPN_Extension_testing_{date}({test_time})*>\n "
+                    "text": f":gear: <{public_test_run_url}|*Debug_Extension_testing_{date}({test_time})*>\n "
                             f"В случае проблемы обращаться к <@U03LV5XPYCX>"
                 }
             }]

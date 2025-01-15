@@ -1,3 +1,7 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 from locators.base_locators import BaseLocators
 from locators.sidebar_menu_locators import SidebarMenuLocators
 from locators.settings_locators import SettingsLocators
@@ -95,7 +99,7 @@ class TestFaqSupport:
             base_page.is_clickable('id', SidebarMenuLocators.FaqButtonInstruction).click()
             base_page.activate_redirect_page()
             time.sleep(10)
-            actual_url = "https://freevpnplanet.com/contact-us/"
+            actual_url = os.getenv("URL_CONTACT_US")
             current_url = base_page.get_current_url()
             assert current_url == actual_url
             qase.create_passed_result(case=238, test_run_id=qase_run_id, time=time.time()-base_page.time)
@@ -122,7 +126,7 @@ class TestFaqSupport:
             base_page.is_clickable('class_name', BaseLocators.BurgerMenuButton).click()
             base_page.is_clickable('id', SidebarMenuLocators.FaqMenu).click()
             base_page.is_clickable('id', AccountLocators.FacebookButton).click()
-            actual_url_facebook = "https://www.facebook.com/freevpnplanet"
+            actual_url_facebook = os.getenv("FACEBOOK_URL")
             base_page.activate_redirect_page()
             time.sleep(10)
             current_url_facebook = base_page.get_current_url()
@@ -151,7 +155,7 @@ class TestFaqSupport:
             base_page.is_clickable('class_name', BaseLocators.BurgerMenuButton).click()
             base_page.is_clickable('id', SidebarMenuLocators.FaqMenu).click()
             base_page.is_clickable('id', AccountLocators.TelegramButton).click()
-            actual_url_telegram = "https://t.me/FreeVPNPlanet"
+            actual_url_telegram = os.getenv("TELEGRAM_URL")
             base_page.activate_redirect_page()
             time.sleep(10)
             current_url_telegram = base_page.get_current_url()

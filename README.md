@@ -1,6 +1,6 @@
-# Planet VPN Automation Project
+# VPN Extension Project
 
-This project is designed to automate testing of the Planet VPN extension.
+This project is designed to automate testing of the VPN extension.
 Testing for next browsers: chrome, firefox, edge...
 
 ## Description README.md

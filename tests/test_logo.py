@@ -11,18 +11,18 @@ class TestLogo:
             STEPS:
             1. Activate page with the extension
             2. Click on the consent button of Privacy Policy
-            3. Click on the Planet VPN logo
+            3. Click on the VPN logo
             4. Activate redirect page
-            5. Check for presence Planet VPN logo on the website
+            5. Check for presence VPN logo on the website
         """
         base_page, privacy_policy, sidebar_menu, qase = launch_methods
         try:
             base_page.activate_page()
             privacy_policy.accept_privacy_policy()
-            base_page.find_element('class_name', BaseLocators.LogoPlanetVpn).click()
+            base_page.find_element('class_name', BaseLocators.LogoVpn).click()
             base_page.activate_redirect_page()
-            logo_planet_vpn = base_page.is_visible('xpath', SiteLocators.LogoPlanetVpn)
-            assert isinstance(logo_planet_vpn, WebElement)
+            logo_vpn = base_page.is_visible('xpath', SiteLocators.LogoVpn)
+            assert isinstance(logo_vpn, WebElement)
             qase.create_passed_result(case=44, test_run_id=qase_run_id, time=time.time()-base_page.time)
         except Exception as ex:
             qase.create_failed_result(case=44, test_run_id=qase_run_id, time=time.time()-base_page.time,

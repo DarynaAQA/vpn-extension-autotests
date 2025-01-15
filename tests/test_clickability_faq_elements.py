@@ -6,7 +6,7 @@ import time
 class TestClickabilityFields:
 
     span_why_vpn_text = "Using encryption technology as part of the use of a VPN"
-    span_its_free_text = "You can use Planet VPN absolutely free"
+    span_its_free_text = "You can use VPN absolutely free"
     span_how_to_use_text = "To use all the features of the application"
     span_where_is_my_password_text = "Account registration takes place automatically"
     span_after_purchase_text = "To access Premium servers, you must be authorized"

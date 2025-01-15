@@ -1,5 +1,5 @@
 class SiteLocators:
-    LogoPlanetVpn = '//*[@id="__layout"]/div/div[1]/div/div[1]/div/div/div[1]/div[1]/a/img'
+    LogoVpn = '//*[@id="__layout"]/div/div[1]/div/div[1]/div/div/div[1]/div[1]/a/img'
     TitlePrivacyPolicy = '//*[@id="__layout"]/div/div[1]/main/div/div/div[1]/div/div[2]/h1'
 
 

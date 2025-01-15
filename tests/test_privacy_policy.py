@@ -50,7 +50,7 @@ class TestPrivacyPolicy:
         base_page.activate_page()
         try:
             base_page.is_clickable('id', PrivacyPolicyLocators.AcceptButton).click()
-            main_window = base_page.is_present('class_name', BaseLocators.LogoPlanetVpn)
+            main_window = base_page.is_present('class_name', BaseLocators.LogoVpn)
             assert isinstance(main_window, WebElement)
             qase.create_passed_result(case=25, test_run_id=qase_run_id, time=time.time()-base_page.time)
         except Exception as ex:

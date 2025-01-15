@@ -1,3 +1,6 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
 from locators.settings_locators import SettingsLocators, ReloadPopUpLocators
 from locators.sidebar_menu_locators import SidebarMenuLocators
 from locators.base_locators import BaseLocators, PremiumBenefits
@@ -663,7 +666,7 @@ class TestSmartFilters:
            6.Click on the website button
            7.Click on the "By default" button
            8.Click on the premium server button
-           8.Make sure user go to https://freevpnplanet.com/order page """
+           8.Make sure user go to /order page """
         try:
             base_page, privacy_policy, sidebar_menu, qase = launch_methods
             auth_methods = AuthExtPage(setup_driver)
@@ -674,11 +677,11 @@ class TestSmartFilters:
             proceed_to_order = base_page.is_clickable('id', PremiumBenefits.StartOrdering).click()
             base_page.activate_redirect_page()
             url = base_page.get_current_url()
-            assert url == 'https://freevpnplanet.com/order/'
+            assert url == os.getenv("ORDER_LINK")
             qase.create_passed_result(case=364, test_run_id=qase_run_id, time=time.time() - base_page.time)
         except AssertionError as ex:
             qase.create_failed_result(case=364, test_run_id=qase_run_id, time=time.time() - base_page.time,
-                                      comment=f"Redirect on https://freevpnplanet.com/order did not originate\n {ex}")
+                                      comment=f"Redirect on /order did not originate\n {ex}")
 
     def test_clickability_free_server_free_user(self, setup_driver, launch_methods, qase_run_id):
         """ID 364
@@ -691,7 +694,7 @@ class TestSmartFilters:
            6.Click on the website button
            7.Click on the "By default" button
            8.Click on the free server button
-           8.Make sure user go to https://freevpnplanet.com/order page"""
+           8.Make sure user go to /order page"""
         try:
             base_page, privacy_policy, sidebar_menu, qase = launch_methods
             base_page.activate_page()
@@ -721,7 +724,7 @@ class TestSmartFilters:
            6.Click on the website button
            7.Click on the "By default" button
            8.Click on the premium server button
-           8.Make sure user go to https://freevpnplanet.com/order page """
+           8.Make sure user go to /order page """
         try:
             base_page, privacy_policy, sidebar_menu, qase = launch_methods
             auth_methods = AuthExtPage(setup_driver)
@@ -757,7 +760,7 @@ class TestSmartFilters:
             privacy_policy.accept_privacy_policy()
             server = base_page.is_clickable('class_name', BaseLocators.SelectServer).click()
             back_arrow = base_page.is_visible('class_name', SettingsLocators.GoBackButton).click()
-            title = base_page.is_visible('class_name', BaseLocators.LogoPlanetVpn)
+            title = base_page.is_visible('class_name', BaseLocators.LogoVpn)
             assert title.is_displayed()
             qase.create_passed_result(case=368, test_run_id=qase_run_id, time=time.time() - base_page.time)
         except AssertionError as ex:

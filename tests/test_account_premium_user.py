@@ -1,3 +1,6 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
 from pages.auth_ext_page import AuthExtPage
 from locators.base_locators import BaseLocators
 from locators.sidebar_menu_locators import SidebarMenuLocators
@@ -123,7 +126,7 @@ class TestAccountPremiumUser:
             base_page.is_clickable('id', AccountLocators.RenewButton).click()
             base_page.activate_redirect_page()
             time.sleep(10)
-            actual_link_order = "https://freevpnplanet.com/order/"
+            actual_link_order = os.getenv("ORDER_LINK")
             current_link_order = base_page.get_current_url()
             assert current_link_order == actual_link_order
             qase.create_passed_result(case=209, test_run_id=qase_run_id, time=time.time() - base_page.time)

@@ -25,7 +25,7 @@ class TestMainWindowFreeUser:
             privacy_policy.accept_privacy_policy()
             base_page.refresh_page()
             burger_menu_button = base_page.burger_menu_button_is_present()
-            logo_planet_vpn = base_page.logo_planet_vpn_is_present()
+            logo_vpn = base_page.logo_vpn_is_present()
             login_icon = base_page.login_icon_is_present()
             button_select_country = base_page.select_country_button_is_present()
             current_location = base_page.current_location_is_present()
@@ -37,7 +37,7 @@ class TestMainWindowFreeUser:
             indicator_history = base_page.indicator_history_is_present()
             indicator_smart_filter = base_page.indicator_smart_filters_is_present()
             assert isinstance(burger_menu_button, WebElement)
-            assert isinstance(logo_planet_vpn, WebElement)
+            assert isinstance(logo_vpn, WebElement)
             assert isinstance(login_icon, WebElement)
             assert isinstance(button_select_country, WebElement)
             assert isinstance(current_location, WebElement)
@@ -527,7 +527,7 @@ class TestMainWindowFreeUser:
             2. Click on the consent button of Privacy Policy
             3. Click on the banner "More options with Premium"
             4. Click on the close button
-            5. Check for presence of Planet VPN logo
+            5. Check for presence of VPN logo
         """
         base_page, privacy_policy, sidebar_menu, qase = launch_methods
         try:
@@ -536,8 +536,8 @@ class TestMainWindowFreeUser:
             base_page.is_clickable('id', BaseLocators.BannerPremium).click()
             close_button = base_page.is_clickable('class_name', PremiumBenefits.CloseButton)
             close_button.click()
-            logo_planet_vpn = base_page.is_present('class_name', BaseLocators.LogoPlanetVpn)
-            assert isinstance(logo_planet_vpn, WebElement)
+            logo_vpn = base_page.is_present('class_name', BaseLocators.LogoVpn)
+            assert isinstance(logo_vpn, WebElement)
             qase.create_passed_result(case=107, test_run_id=qase_run_id, time=time.time() - base_page.time)
         except Exception as ex:
             qase.create_failed_result(case=107, test_run_id=qase_run_id, time=time.time() - base_page.time,
@@ -551,7 +551,7 @@ class TestMainWindowFreeUser:
             3. Click on the banner "More options with Premium"
             4. Click on the "Proceed to order" button
             5. Activate redirect page
-            6. Check for presence of Planet VPN logo on the website
+            6. Check for presence of VPN logo on the website
         """
         base_page, privacy_policy, sidebar_menu, qase = launch_methods
         try:
@@ -560,8 +560,8 @@ class TestMainWindowFreeUser:
             base_page.is_clickable('id', BaseLocators.BannerPremium).click()
             base_page.is_clickable('id', PremiumBenefits.StartOrdering).click()
             base_page.activate_redirect_page()
-            logo_planet_vpn = base_page.is_present('xpath', SiteLocators.LogoPlanetVpn)
-            assert isinstance(logo_planet_vpn, WebElement)
+            logo_vpn = base_page.is_present('xpath', SiteLocators.LogoVpn)
+            assert isinstance(logo_vpn, WebElement)
             qase.create_passed_result(case=109, test_run_id=qase_run_id, time=time.time() - base_page.time)
         except Exception as ex:
             qase.create_failed_result(case=109, test_run_id=qase_run_id, time=time.time() - base_page.time,
